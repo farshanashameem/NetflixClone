@@ -6,10 +6,12 @@ import bell_icon from '../../assets/bell_icon.svg'
 import profile_img from '../../assets/profile_img.png'
 import caret_icon from '../../assets/caret_icon.svg'
 import { logout } from '../../firebase'
+import { Link ,useNavigate} from 'react-router-dom'
 
 const NavBar = () => {
 
   const navRef=useRef();
+  const navigate= useNavigate();
 
   useEffect(()=>{
     window.addEventListener('scroll',()=>{
@@ -19,18 +21,19 @@ const NavBar = () => {
         navRef.current.classList.remove('nav-dark')
       }
     })
-  },[])
+  },[]);
+
 
   return (
     <div ref={navRef} className='navbar'>
       <div className="navbar-left">
         <img src={logo} alt="" />
         <ul>
-          <li>Home</li>
+           <Link to="/"><li className='nav-link'>Home</li></Link>
           <li>TV Shows</li>
           <li>Movies</li>
           <li>New & Popular</li>
-          <li>My list</li>
+          <Link to="/watchlist"><li className='nav-link'>My list</li></Link>
           <li>Browse by Languages</li>
         </ul>
       </div>

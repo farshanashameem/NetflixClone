@@ -1,0 +1,102 @@
+/* Page wrapper */
+.watchlist {
+  min-height: 100vh;
+  background: #141414;
+  color: white;
+  
+}
+
+.contents {
+  padding: 100px 40px;
+}
+
+/* Page title */
+.contents h1 {
+  margin-bottom: 70px;
+  font-size: 26px;
+  
+}
+
+.list{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.watchlist-card {
+    width: 240px;
+  text-align: center;
+  transition: transform 0.3s ease;
+    margin-right: 10PX;
+}
+
+.watchlist-card:hover {
+  transform: scale(1.08);
+}
+
+/* Poster */
+.watchlist-card img {
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Movie title */
+.watchlist-card h3 {
+  margin: 10px 0 6px;
+  font-size: 14px;
+}
+
+/* Remove button */
+.watchlist-card button {
+  background: #e50914;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.watchlist-card button:hover {
+  background: #f6121d;
+}
+
+/* Empty text */
+.empty-text {
+  margin-top: 120px;
+  text-align: center;
+  color: #aaa;
+  font-size: 20px;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .contents {
+    padding: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .contents h1 {
+    font-size: 22px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .contents {
+    padding: 15px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .watchlist-card h3 {
+    font-size: 12px;
+  }
+
+  .watchlist-card button {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+}

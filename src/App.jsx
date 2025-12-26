@@ -5,7 +5,10 @@ import Login from './pages/Login/Login'
 import Player from './pages/Player/Player'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify'
+import MovieDetails from './pages/MovieDetails/MovieDetails'
+import WatchList from './pages/WatchList/WatchList'
+import { WatchListProvider } from './context/watchListContext'
 
 const App = () => {
 
@@ -26,12 +29,16 @@ const App = () => {
   },[])
   return (
     <div>
-       <ToastContainer theme="dark"/>
+       <WatchListProvider>
+        <ToastContainer theme="dark"/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/player/:id' element={<Player/>}/>  
+        <Route path='/player/:id' element={<Player/>}/>
+        <Route path='/movie/:id' element= { <MovieDetails/> }/>
+        <Route  path='/watchlist' element= { <WatchList />}/>  
       </Routes>
+       </WatchListProvider>
       
       
     </div>
